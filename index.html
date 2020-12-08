@@ -1,0 +1,42 @@
+<html>
+
+
+    <head>
+        <title>Reward Hook </title>
+        <script src="comfy.min.js"></script>
+        <script src="getRandomInt.js"></script> 
+    </head>
+
+
+    <body>
+        <h1 id="YAY"></h1>
+        <h2 id="JON"></h2>
+        <h3 id="LOL"></h3>
+        <h4 id="ZOL"></h4>
+        <h5 id="KOL"></h5>
+
+
+        <script>
+            ComfyJS.Init( "vasaritv" );
+            ComfyJS.onChat = ( user, message, flags, self, extra ) => {
+            document.querySelector("#JON").innerText = user;
+            document.querySelector("#YAY").innerText = message;
+            document.querySelector("#LOL").innerText = extra.customRewardId;
+            if (flags.customReward)
+            {
+            getrandom();
+            document.querySelector("#ZOL").innerText = "Yes";
+            }
+            else{
+            document.querySelector("#ZOL").innerText = "NO";
+            }
+            }
+        
+
+        </script>
+
+
+    </body>
+
+
+<html>
