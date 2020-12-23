@@ -1,0 +1,7 @@
+player:UseCard(Card.RUNE_PERTHRO)
+Isaac.Spawn(EntityType.ENTITY_PICKUP, PickupVariant.PICKUP_LOCKEDCHEST, 0, arandomspot, Vector(0,0), nil)
+player:UseActiveItem(CollectibleType.COLLECTIBLE_CROOKED_PENNY)
+player:UseActiveItem(CollectibleType.COLLECTIBLE_DECK_OF_CARDS)
+player:UseCard(Card.CARD_ACE_OF_SPADES, Card.CARD_ACE_OF_SPADES)
+player:UseActiveItem(CollectibleType.COLLECTIBLE_UNDEFINED)
+player:UsePill(PillEffect.PILLEFFECT_PRETTY_FLY, PillColor.PILL_NULL)
