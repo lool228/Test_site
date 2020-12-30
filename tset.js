@@ -2,17 +2,26 @@ var lool = 'Hello'
 const tmi = require('tmi.js');
 
 
-function getrandom(channel) {
+function getrandom(context) {
     const fs = require('fs');
     const config = require('./config.json');
     if (fs.existsSync(config.commandListFile)) {
         console.log('config', config);
+
         const commandListFileContent = fs.readFileSync(config.commandListFile, 'utf8');
         const commandArray = commandListFileContent.split('\r\n');
-        const randomCommand = commandArray[getRandomInt(0, commandArray.length)];
-        console.log('randomCommand', randomCommand);
-        fs.appendFileSync(config.dispatchFile, `${randomCommand}\r\n`);
-        client.say(channel, `${randomCommand}, yeah!`);
+        var Command = 'Isaac.Spawn(EntityType.ENTITY_ENVY, 1, 0, arandomspot, Vector(0, 0), player)'
+        if (context["custom-reward-id"] === "*********") {
+            var Command = '******'
+        }
+        if (context["custom-reward-id"] === "*********") {
+            var Command = '******'
+        }
+
+
+        console.log('Command', randomCommand);
+        fs.appendFileSync(config.dispatchFile, `${Command}\r\n`);
+        client.say(channel, `${Command}`);
     }
 }
 function getRandomInt(min, max) {
@@ -29,17 +38,15 @@ const client = new tmi.Client({
 		secure: true
 	},
 	identity: {
-		username: 'lool2341',
-		password: ''
+		username: '*******',
+		password: '*******'
 	},
 	channels: [ 'VasariTV' ]
 });
 client.connect().catch(console.error);
 client.on('message', (channel, context, tags, message, self) => {
 	if(self) return;
-    if (context["custom-reward-id"] === "a16e9530-5aa6-4a8b-8ff0-d12786d9fd16") {
-        client.say(channel, `@${context.username}, heya!`);
-        getrandom(channel)
-	}
+    client.say(channel, `@${context.username}, heya!`);
+    getrandom(context)
 }
 )
