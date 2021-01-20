@@ -1,4 +1,3 @@
-var lool = 'Hello'
 const tmi = require('tmi.js');
 
 
@@ -19,7 +18,7 @@ function getrandom(context) {
         }
 
 
-        console.log('Command', randomCommand);
+        console.log('Command', Command);
         fs.appendFileSync(config.dispatchFile, `${Command}\r\n`);
         client.say(channel, `${Command}`);
     }
@@ -31,22 +30,21 @@ function getRandomInt(min, max) {
 }
 
 
-const client = new tmi.Client({
+const client = new tmi.Client
+({
 	options: { debug: true, messagesLogLevel: "info" },
 	connection: {
 		reconnect: true,
 		secure: true
 	},
 	identity: {
-		username: '*******',
-		password: '*******'
+		username: 'Expert_Gennadiy',
+		password: 'oauth:rxh9ysujl9h1phv6z3i7216nuqx6zx'
 	},
 	channels: [ 'VasariTV' ]
 });
 client.connect().catch(console.error);
 client.on('message', (channel, context, tags, message, self) => {
 	if(self) return;
-    client.say(channel, `@${context.username}, heya!`);
-    getrandom(context)
-}
-)
+    getrandom(context, channel)
+})
