@@ -8,7 +8,6 @@ function getrandom(context, channel) {
         console.log('config', config);
 
         const commandListFileContent = fs.readFileSync(config.commandListFile, 'utf8');
-        const commandArray = commandListFileContent.split('\r\n');
         var Command = 'Isaac.Spawn(EntityType.ENTITY_ENVY, 1, 0, arandomspot, Vector(0, 0), player)'
         if (context["custom-reward-id"] === "*********") {
             var Command = '******'
