@@ -15,11 +15,8 @@ function getrandom(context, channel) {
         if (context["custom-reward-id"] === "*********") {
             var Command = '******'
         }
-
-
         console.log('Command', Command);
         fs.appendFileSync(config.dispatchFile, `${Command}\r\n`);
-        client.say(channel, `${Command}`);
     }
 }
 function getRandomInt(min, max) {
@@ -44,6 +41,5 @@ const client = new tmi.Client
 });
 client.connect().catch(console.error);
 client.on('message', (channel, context, tags, message, self) => {
-	if(self) return;
     getrandom(context, channel)
 })
