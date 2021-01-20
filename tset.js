@@ -1,7 +1,7 @@
 const tmi = require('tmi.js');
 
 
-function getrandom(context) {
+function getrandom(context, channel) {
     const fs = require('fs');
     const config = require('./config.json');
     if (fs.existsSync(config.commandListFile)) {
